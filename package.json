@@ -1,0 +1,24 @@
+{
+  "name": "pulsemr",
+  "version": "1.1.1",
+  "description": "PULSEMR: an interactive 3D research demonstration of adaptive mixed-reality CPR guidance, with a ground-truth-labelled synthetic dataset and the harness that reproduces it.",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node tools/serve.js",
+    "test": "node tools/smoke-test.js",
+    "experiments": "node harness/run_all.js",
+    "sessions": "node harness/export_sessions.js",
+    "screenshots": "node tools/screenshots.js",
+    "demo-gif": "python3 tools/make_gif.py",
+    "figures": "python3 docs/paper/make_figures.py",
+    "paper": "node docs/paper/build_paper.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "docx": "^9.5.0",
+    "playwright": "^1.50.0"
+  }
+}

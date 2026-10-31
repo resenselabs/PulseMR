@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PULSEMR Adaptive CPR Intelligence</title>
+<meta name="pulsemr-version" content="1.1.1">
+<meta name="description" content="Interactive research demonstration of adaptive mixed-reality CPR guidance with synthetic hand tracking. Not for clinical use.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 34%27%3E%3Crect x=%271%27 y=%271%27 width=%2732%27 height=%2732%27 rx=%2710%27 fill=%27%2319212C%27/%3E%3Cpath d=%27M6 18h5l2.5-6 4 11 3-8 1.8 3H28%27 fill=%27none%27 stroke=%27%23FF6259%27 stroke-width=%272.4%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-sound-off" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M17 9l4 6M21 9l-4 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-sound-on" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1112 0v5l1.5 2h-15z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 20.5a2 2 0 004 0" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M19.5 14.5A8 8 0 019.5 4.5a8 8 0 1010 10z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="5.5" width="3.8" height="13" rx="1" fill="currentColor"/><rect x="13.7" y="5.5" width="3.8" height="13" rx="1" fill="currentColor"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M5 12a7 7 0 102-4.9" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M5 4.5v4h4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="currentColor"/><path d="M12 1.5v4M12 18.5v4M1.5 12h4M18.5 12h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M6 5v14M19 5.5l-10 6.5 10 6.5z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-fwd" viewBox="0 0 24 24"><path d="M18 5v14M5 5.5l10 6.5-10 6.5z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M6 21V4M6 4h11l-2.5 4L17 12H6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 016.5 3H20v15H6.5A2.5 2.5 0 004 20.5zM4 20.5A2.5 2.5 0 006.5 23H20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-cam" viewBox="0 0 24 24"><path d="M3 12l9-7 9 7-9 7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.4" fill="currentColor"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5.5 9.5A2 2 0 006.2 21h11.6a2 2 0 001.7-2.5L14 9V3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.5 15h9" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9.5 9.5a2.5 2.5 0 114 2c-1 .6-1.5 1.2-1.5 2.3M12 17.2v.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<div class="app" id="app" data-mode="train" data-sheet="guide">
+  <canvas id="scene" aria-label="Three-dimensional CPR simulation laboratory. Left drag pans, right drag rotates, scroll zooms. Click an object for details." tabindex="0"></canvas>
+  <div class="labels" id="labels" aria-hidden="true"></div>
+  <div class="mrvisor" id="mrvisor" hidden><div class="mrlabel">SIMULATED MR HEADSET VIEW · NOT A HOLOLENS SESSION</div><div class="reticle"></div></div>
+  <div class="mrlayer" id="mrlayer" hidden aria-hidden="true"></div>
+  <div class="mrhud" id="mrhud" hidden>
+    <button class="btn primary" data-action="exit-mr">Exit MR view</button>
+    <span class="chip" data-s="info">Overlays anchored to the 3D manikin</span>
+  </div>
+
+  <header class="topbar" role="banner">
+    <div class="brand panel">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="10" fill="#19212C"/><path d="M6 18h5l2.5-6 4 11 3-8 1.8 3H28" fill="none" stroke="#FF6259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25.5" cy="9" r="2.3" fill="#A595D8"/></svg>
+      <div><div class="name">PULSEMR <i>//</i></div><div class="sub">Adaptive CPR Intelligence</div></div>
+    </div>
+    <nav class="seg panel" id="modes" role="tablist" aria-label="Operational mode">
+      <button role="tab" data-mode="train" aria-selected="true" title="Training simulation (1)">TRAIN</button>
+      <button role="tab" data-mode="mr" aria-selected="false" title="Simulated headset view (2)">MR VIEW</button>
+      <button role="tab" data-mode="assess" aria-selected="false" title="Performance assessment (3)">ASSESS</button>
+      <button role="tab" data-mode="compare" aria-selected="false" title="Reported research comparison (4)">COMPARE</button>
+      <button role="tab" data-mode="replay" aria-selected="false" title="Session replay (5)">REPLAY</button>
+    </nav>
+    <div class="dd">
+      <button class="tbtn" id="areaBtn" aria-haspopup="true" aria-expanded="false" data-action="toggle-menu" data-arg="areaMenu" title="Camera destinations"><svg><use href="#i-cam"/></svg><span class="txt" id="areaName">Lab overview</span><svg style="width:14px"><use href="#i-chev"/></svg></button>
+      <div class="popover panel" id="areaMenu" hidden style="top:54px;left:0;">
+        <h4>Areas</h4>
+        <button class="mitem" data-action="area" data-arg="overview">Lab overview<small></small></button>
+        <button class="mitem" data-action="area" data-arg="cpr">CPR performance</button>
+        <button class="mitem" data-action="area" data-arg="tracking">Hand-tracking space</button>
+        <button class="mitem" data-action="area" data-arg="feedback">Feedback system</button>
+        <button class="mitem" data-action="area" data-arg="research">Research workstation</button>
+        <h4>Camera views</h4>
+        <button class="mitem" data-action="view" data-arg="iso">Isometric lab</button>
+        <button class="mitem" data-action="view" data-arg="side">Side view</button>
+        <button class="mitem" data-action="view" data-arg="top">Top view</button>
+        <button class="mitem" data-action="view" data-arg="hands">Hand close-up</button>
+        <button class="mitem" data-action="view" data-arg="mr">MR first person</button>
+        <button class="mitem" data-action="reset-camera">Reset camera</button>
+      </div>
+    </div>
+    <div class="search">
+      <svg><use href="#i-search"/></svg>
+      <input id="search" type="search" placeholder="Search the lab" aria-label="Search objects, modules, metrics and feedback categories" autocomplete="off">
+      <div class="results panel" id="results" hidden role="listbox"></div>
+    </div>
+    <div class="spacer"></div>
+    <div class="timer panel" title="Simulated session time"><b id="simTime">00:00.0</b><span>SESSION TIME</span></div>
+    <div class="status panel" id="simStatus" data-s="calib" aria-live="polite"><span class="dot"></span><span class="txt" id="simStatusTxt">CALIBRATING</span></div>
+    <div class="dd">
+      <button class="tbtn" id="audioBtn" data-action="toggle-menu" data-arg="audioMenu" aria-haspopup="true" aria-expanded="false" title="Audio and haptic settings (A toggles audio)"><svg><use href="#i-sound-off" id="audioIcon"/></svg></button>
+      <div class="popover panel" id="audioMenu" hidden style="top:54px;right:0;width:290px;">
+        <h4>Auditory feedback</h4>
+        <button class="mitem" data-action="audio-enable" id="audioEnable" aria-pressed="false">Enable audio<small>Muted until you turn it on</small></button>
+        <button class="mitem" data-action="audio-opt" data-arg="voice" aria-pressed="true">Spoken prompts<small>Browser speech synthesis, no recordings</small></button>
+        <button class="mitem" data-action="audio-opt" data-arg="chimes" aria-pressed="true">Notification chimes</button>
+        <div style="padding:6px 10px 2px"><div class="eyebrow" style="margin-bottom:6px">Rhythm cue at 110 per minute</div>
+          <div class="mini" id="rhythmMode"><button data-action="rhythm" data-arg="off" aria-pressed="false">Off</button><button data-action="rhythm" data-arg="feedback" aria-pressed="true">On rate cues</button><button data-action="rhythm" data-arg="always" aria-pressed="false">Always</button></div></div>
+        <h4 style="margin-top:12px">Haptic feedback</h4>
+        <button class="mitem" data-action="vibrate" id="vibBtn" aria-pressed="false">Phone vibration<small id="vibNote">Uses the Vibration API where the browser allows it</small></button>
+      </div>
+    </div>
+    <div class="dd">
+      <button class="tbtn" id="alertBtn" data-action="toggle-menu" data-arg="alertsMenu" aria-haspopup="true" aria-expanded="false" title="Alerts"><svg><use href="#i-bell"/></svg><span class="badge" id="alertBadge" hidden>0</span></button>
+      <div class="popover panel" id="alertsMenu" hidden style="top:54px;right:0;width:330px;max-height:420px;overflow:auto;"></div>
+    </div>
+    <button class="tbtn" id="themeBtn" data-action="theme" title="Light or dark theme (T)" aria-label="Switch theme"><svg><use href="#i-moon" id="themeIcon"/></svg></button>
+    <div class="dd">
+      <button class="tbtn" id="profileBtn" data-action="toggle-menu" data-arg="profileMenu" aria-haspopup="true" aria-expanded="false" title="Trainee profile and accessibility"><span class="avatar">T1</span></button>
+      <div class="popover panel" id="profileMenu" hidden style="top:54px;right:0;width:300px;">
+        <h4>Trainee 01 · synthetic profile</h4>
+        <button class="mitem" data-action="theme" id="themeItem" aria-pressed="false">Dark theme</button>
+        <button class="mitem" data-action="pref" data-arg="contrast" aria-pressed="false">High contrast</button>
+        <button class="mitem" data-action="pref" data-arg="reducedMotion" aria-pressed="false">Reduced motion</button>
+        <button class="mitem" data-action="pref" data-arg="simpleLandmarks" aria-pressed="false">Simplified landmarks<small>Wrist, palm and fingertips only</small></button>
+        <div style="padding:6px 10px 2px"><div class="eyebrow" style="margin-bottom:6px">Maximum feedback intensity</div>
+          <div class="mini" id="capMode"><button data-action="cap" data-arg="1" aria-pressed="false">Level 1</button><button data-action="cap" data-arg="2" aria-pressed="false">Level 2</button><button data-action="cap" data-arg="3" aria-pressed="true">Level 3</button></div></div>
+        <button class="mitem" data-action="explore">Explore the research</button>
+        <button class="mitem" data-action="help">Keyboard shortcuts</button>
+        <button class="mitem" data-action="reset">Restart session</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="safety" id="safety"><b>RESEARCH DEMONSTRATION</b> • SIMULATED CPR TRAINING • NOT FOR CLINICAL USE</div>
+
+  <section class="kpis" id="kpis" aria-label="Live performance indicators">
+    <button class="kpi panel" id="kpiDepth" data-action="focus-metric" data-arg="depth" title="Compression depth: show the depth visualisation">
+      <div class="row"><span class="eyebrow">Compression depth</span><span class="chip" id="kDepthChip">n/a</span></div>
+      <div class="row"><span class="val" id="kDepth">n/a<small>mm</small></span><span class="mono" style="font-size:11px;color:var(--ink-2)">Target 50–60 mm</span></div>
+      <canvas id="kDepthBar" height="26"></canvas>
+      <div class="foot"><span>SIMULATED LIVE PERFORMANCE</span></div>
+    </button>
+    <button class="kpi panel" id="kpiRate" data-action="focus-metric" data-arg="rate" title="Compression rate">
+      <div class="row"><span class="eyebrow">Compression rate</span><span class="chip" id="kRateChip">n/a</span></div>
+      <div class="row"><span class="val" id="kRate">n/a<small>CPM</small></span><span class="mono" style="font-size:11px;color:var(--ink-2)">Target 100–120</span></div>
+      <canvas id="kRateViz" height="26"></canvas>
+      <div class="foot"><span>SIMULATED LIVE PERFORMANCE</span></div>
+    </button>
+    <button class="kpi panel" id="kpiScore" data-action="focus-metric" data-arg="score" title="Session quality score">
+      <div class="row"><span class="eyebrow">Session quality score</span><span class="chip" data-s="info">GCS</span></div>
+      <div class="gauge">
+        <svg width="62" height="62" viewBox="0 0 62 62" role="img" aria-label="Session quality score"><circle cx="31" cy="31" r="25" fill="none" stroke="var(--panel-inset)" stroke-width="7"/><circle id="kScoreArc" cx="31" cy="31" r="25" fill="none" stroke="var(--coral)" stroke-width="7" stroke-linecap="round" stroke-dasharray="0 157" transform="rotate(-90 31 31)"/><text id="kScore" x="31" y="36" text-anchor="middle" font-size="16" font-weight="700" fill="var(--ink)">n/a</text></svg>
+        <div class="parts" id="kParts"></div>
+      </div>
+      <div class="foot"><span>SIMULATED · LAST 20</span><span id="kScoreSub"></span></div>
+    </button>
+  </section>
+
+  <div class="sheet-host panel" id="sheet">
+    <button class="handle" data-action="sheet-toggle" aria-label="Expand or collapse the panel"></button>
+    <div class="mobile-tabs" role="tablist" aria-label="Panels">
+      <button role="tab" data-action="sheet" data-arg="guide" aria-selected="true">Guidance</button>
+      <button role="tab" data-action="sheet" data-arg="controls" aria-selected="false">Controls</button>
+      <button role="tab" data-action="sheet" data-arg="data" aria-selected="false">Data</button>
+      <button role="tab" data-action="sheet" data-arg="process" aria-selected="false">Process</button>
+    </div>
+    <div class="sheet-body">
+      <aside class="left" id="left">
+        <section class="panel controls" id="controls" aria-label="Training controls">
+          <div class="phead"><h2>Training controls</h2>
+            <div class="btnrow">
+              <button class="btn sm" data-action="run" id="runBtn" title="Start or pause (Space)"><svg><use href="#i-pause" id="runIcon"/></svg><span id="runTxt">Pause</span></button>
+              <button class="btn sm ghost" data-action="reset" title="Restart session"><svg><use href="#i-reset"/></svg></button>
+            </div>
+          </div>
+          <div class="pbody" id="ctlBody" tabindex="0" role="region" aria-label="Training controls"></div>
+        </section>
+        <section class="panel tracker" id="tracker" aria-label="Processing pipeline">
+          <h3><span>Guidance pipeline</span><span class="rtag" style="font-size:9px">Click a stage</span></h3>
+          <ol class="stages" id="stages"></ol>
+          <p class="tagline">Sense. Assess. Adapt. <span>Guide.</span></p>
+        </section>
+      </aside>
+
+      <aside class="right panel" id="right" aria-label="Details"></aside>
+
+      <section class="dock panel" id="dock" aria-label="Waveform and data">
+        <div class="wave">
+          <div class="phead">
+            <h3>Depth waveform</h3>
+            <div class="btnrow">
+              <button class="tog" data-action="wave-layer" data-arg="raw" aria-pressed="true" title="Raw tracked depth">RAW</button>
+              <button class="tog" data-action="wave-layer" data-arg="filt" aria-pressed="true" title="Filtered depth">FILTERED</button>
+              <button class="tog" data-action="wave-pause" id="wavePause" aria-pressed="false" title="Freeze the waveform and inspect cycles">INSPECT</button>
+            </div>
+          </div>
+          <canvas id="wave" aria-label="Compression depth waveform with the 50 to 60 millimetre target band"></canvas>
+        </div>
+        <div class="tabs">
+          <div class="tablist" role="tablist" id="dataTabs">
+            <button role="tab" data-action="tab" data-arg="events" aria-selected="true">Events</button>
+            <button role="tab" data-action="tab" data-arg="log" aria-selected="false">Feedback log</button>
+            <button role="tab" data-action="tab" data-arg="results" aria-selected="false">Research</button>
+            <button role="tab" data-action="tab" data-arg="avs" aria-selected="false">Adaptive vs static</button>
+          </div>
+          <div class="tabpanel" id="tabPanel" tabindex="0" role="region" aria-label="Data table"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <section class="drawer panel" id="assessDrawer" hidden aria-label="Performance assessment"></section>
+  <section class="drawer panel" id="compareDrawer" hidden aria-label="Research comparison"></section>
+  <section class="replaybar panel" id="replayBar" hidden aria-label="Session replay"></section>
+  <section class="lab panel" id="scenarioLab" hidden aria-label="CPR training scenario lab"></section>
+
+  <div class="modal" id="explorer" hidden role="dialog" aria-modal="true" aria-label="Explore the research"><div class="sheetmodal panel" id="explorerBody"></div></div>
+  <div class="modal" id="helpModal" hidden role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+    <div class="sheetmodal panel" style="width:min(560px,100%);height:auto;align-self:center">
+      <div class="phead"><h2>Keyboard shortcuts</h2><button class="btn sm ghost" data-action="close-modal" aria-label="Close"><svg><use href="#i-close"/></svg></button></div>
+      <div class="pbody" style="padding:16px 20px"><div class="rows" id="helpRows"></div></div>
+    </div>
+  </div>
+  <div class="popover panel" id="stageInfo" hidden style="width:320px"></div>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+</div>
+<script src="vendor/three/three.min.js"></script>
+<script src="vendor/three/OrbitControls.js"></script>
+<script src="js/01-core.js"></script>
+<script src="js/02-simulation.js"></script>
+<script src="js/03-scene.js"></script>
+<script src="js/04-frame.js"></script>
+<script src="js/05-charts.js"></script>
+<script src="js/06-feedback-output.js"></script>
+<script src="js/07-interface.js"></script>
+<script src="js/08-main.js"></script>
+</body>
+</html>

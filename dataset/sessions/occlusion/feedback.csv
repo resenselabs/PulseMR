@@ -1,0 +1,85 @@
+controller,time_s,cycle,metric,direction,deviation,level,modalities,message,confirmation,note,shown_in_app
+adaptive,7.633,5,rate,fast,0.109,1,visual,SLOWER,0,,1
+static,7.633,5,rate,fast,0.109,1,visual,SLOWER,0,,0
+adaptive,10.367,9,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,14.167,15,rate,slow,2.250,3,visual+audio+haptic,FASTER,0,,1
+static,14.167,15,rate,slow,2.250,3,visual+audio+haptic,FASTER,0,,0
+adaptive,15.367,16,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,16.933,19,rate,fast,0.869,2,visual+audio,SLOWER,0,,1
+static,16.933,19,rate,fast,0.869,2,visual+audio,SLOWER,0,,0
+adaptive,18.533,22,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,21.233,27,rate,fast,1.134,3,visual+audio+haptic,SLOWER,0,,1
+static,21.233,27,rate,fast,1.134,3,visual+audio+haptic,SLOWER,0,,0
+adaptive,23.967,32,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,26.700,36,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,29.967,42,rate,fast,0.469,2,visual+audio,SLOWER,0,,1
+static,29.967,42,rate,fast,0.469,2,visual+audio,SLOWER,0,,0
+adaptive,31.600,45,rate,fast,0.223,1,visual,SLOWER,0,,1
+static,31.600,45,rate,fast,0.223,1,visual,SLOWER,0,,0
+adaptive,34.333,50,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,34.967,51,recoil,any,3.639,3,visual+audio+haptic,RELEASE FULLY,0,,1
+static,34.967,51,recoil,any,3.639,3,visual+audio+haptic,RELEASE FULLY,0,,0
+adaptive,38.167,56,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,40.867,61,rate,fast,0.643,2,visual+audio,SLOWER,0,,1
+static,40.867,61,rate,fast,0.643,2,visual+audio,SLOWER,0,,0
+adaptive,43.067,65,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,46.833,71,rate,slow,2.219,3,visual+audio+haptic,FASTER,0,,1
+static,46.833,71,rate,slow,2.219,3,visual+audio+haptic,FASTER,0,,0
+adaptive,49.600,76,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,50.667,78,rate,fast,0.425,2,visual+audio,SLOWER,0,,1
+static,50.667,78,rate,fast,0.425,2,visual+audio,SLOWER,0,,0
+adaptive,52.333,81,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,53.400,83,rate,fast,0.130,1,visual,SLOWER,0,,1
+static,53.400,83,rate,fast,0.130,1,visual,SLOWER,0,,0
+adaptive,54.500,85,rate,fast,0.604,2,visual+audio,SLOWER,0,,1
+static,54.500,85,rate,fast,0.604,2,visual+audio,SLOWER,0,,0
+adaptive,55.600,87,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,57.800,91,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,60.000,95,recoil,any,0.471,2,visual+haptic,RELEASE FULLY,0,,1
+static,60.000,95,recoil,any,0.471,2,visual+audio,RELEASE FULLY,0,,0
+adaptive,63.233,101,rate,slow,0.312,1,visual,FASTER,0,,1
+static,63.233,101,rate,slow,0.312,1,visual,FASTER,0,,0
+adaptive,63.800,102,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,66.133,106,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,67.100,108,rate,fast,0.193,1,visual,SLOWER,0,,1
+static,67.100,108,rate,fast,0.193,1,visual,SLOWER,0,,0
+adaptive,68.767,111,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,71.567,116,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,74.833,121,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,78.633,126,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,81.333,131,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,84.200,136,recoil,any,1.070,3,visual+audio+haptic,RELEASE FULLY,0,,1
+static,84.200,136,recoil,any,1.070,3,visual+audio+haptic,RELEASE FULLY,0,,0
+adaptive,86.833,141,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,89.000,145,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,91.733,150,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,93.900,154,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,96.100,158,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,98.267,162,rate,fast,0.288,1,visual,SLOWER,0,,1
+static,98.267,162,rate,fast,0.288,1,visual,SLOWER,0,,0
+adaptive,98.833,163,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,101.033,167,rate,fast,0.501,2,visual+audio,SLOWER,0,,1
+static,101.033,167,rate,fast,0.501,2,visual+audio,SLOWER,0,,0
+adaptive,101.567,168,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,102.133,169,depth,low,0.100,1,visual,PUSH DEEPER,0,,1
+static,102.133,169,depth,low,0.100,1,visual,PUSH DEEPER,0,,0
+adaptive,104.867,173,rate,slow,2.191,3,visual+audio+haptic,FASTER,0,,1
+static,104.867,173,rate,slow,2.191,3,visual+audio+haptic,FASTER,0,,0
+adaptive,106.500,175,rate,slow,2.245,3,visual+audio+haptic,FASTER,0,,1
+static,106.500,175,rate,slow,2.245,3,visual+audio+haptic,FASTER,0,,0
+adaptive,108.133,178,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,109.767,180,rate,slow,2.242,3,visual+audio+haptic,FASTER,0,,1
+static,109.767,180,rate,slow,2.242,3,visual+audio+haptic,FASTER,0,,0
+adaptive,111.400,183,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,113.600,187,rate,fast,1.363,3,visual+audio+haptic,SLOWER,0,,1
+static,113.600,187,rate,fast,1.363,3,visual+audio+haptic,SLOWER,0,,0
+adaptive,114.133,188,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,116.333,192,recoil,any,0.245,1,visual,RELEASE FULLY,0,,1
+static,116.333,192,recoil,any,0.245,1,visual,RELEASE FULLY,0,,0
+adaptive,116.867,193,gooddepth,any,0.000,1,visual,GOOD DEPTH,1,,1
+adaptive,118.533,195,recoil,any,1.463,3,visual+audio+haptic,RELEASE FULLY,0,,1
+static,118.533,195,recoil,any,1.463,3,visual+audio+haptic,RELEASE FULLY,0,,0
+adaptive,120.233,198,recoil,any,2.504,3,visual+audio+haptic,RELEASE FULLY,0,,1
+static,120.233,198,recoil,any,2.504,3,visual+audio+haptic,RELEASE FULLY,0,,0
+adaptive,123.500,203,recoil,any,0.365,2,visual+haptic,RELEASE FULLY,0,,1
+static,123.500,203,recoil,any,0.365,2,visual+audio,RELEASE FULLY,0,,0

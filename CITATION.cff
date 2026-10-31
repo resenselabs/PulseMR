@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use PULSEMR or the PULSEMR-SIM dataset, please cite it as below."
+title: "PULSEMR: adaptive mixed-reality CPR guidance demonstration and PULSEMR-SIM synthetic dataset"
+version: 1.1.1
+date-released: 2026-10-31
+authors:
+  - family-names: Singh
+    given-names: Irish
+    affiliation: "The Pennsylvania State University"
+keywords:
+  - cardiopulmonary resuscitation
+  - CPR training
+  - mixed reality
+  - hand tracking
+  - adaptive feedback
+  - synthetic dataset

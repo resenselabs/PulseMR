@@ -1,0 +1,44 @@
+{
+ "scenario": "mixed",
+ "name": "Mixed performance errors",
+ "description": "Errors rotate every 12 s: shallow, fast, drifting, incomplete recoil.",
+ "seed": 1,
+ "seconds_after_calibration": 120,
+ "calibration_s": 3.6,
+ "tracking_condition": "lab",
+ "technique_parameters": {
+  "depth": 55,
+  "rate": 110,
+  "offX": 0,
+  "offY": 0,
+  "recoil": 100,
+  "intFreq": 0,
+  "noise": 1
+ },
+ "dynamic": "mixed",
+ "calibration_residual_mm": {
+  "x": 0.34,
+  "y": 0.97
+ },
+ "session_scores": {
+  "n": 236,
+  "depthAcc": 73.30508474576271,
+  "rateAcc": 64.68085106382979,
+  "posAcc": 79.23728813559322,
+  "recoilAcc": 81.35593220338983,
+  "IF": 0,
+  "cf": 1,
+  "gcs": 79.7158312297151
+ },
+ "counts": {
+  "samples": 3710,
+  "true_compressions": 237,
+  "true_pauses": 0,
+  "detected_compressions": 236,
+  "detected_pauses": 0,
+  "withheld_low_confidence": 0,
+  "adaptive_cues": 145,
+  "static_cues": 236
+ },
+ "simulation_sha256": "c0f026fc152a9f294c05f22bd878f128b97b87b029644cf6bdb46977a5f8d624"
+}

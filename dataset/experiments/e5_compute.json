@@ -1,0 +1,156 @@
+{
+ "release_sha256": "c0f026fc152a9f294c05f22bd878f128b97b87b029644cf6bdb46977a5f8d624",
+ "version": "v1.1",
+ "node": "v22.23.4",
+ "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "logicalCpus": 2,
+ "runs": [
+  {
+   "run": 0,
+   "samples": 3709,
+   "usPerSample": 8.854143704502562,
+   "msPerSimSecond": 0.26569594660194173,
+   "cycles": 235
+  },
+  {
+   "run": 1,
+   "samples": 3709,
+   "usPerSample": 7.616729037476409,
+   "msPerSimSecond": 0.22856349514563107,
+   "cycles": 235
+  },
+  {
+   "run": 2,
+   "samples": 3709,
+   "usPerSample": 7.539176597465624,
+   "msPerSimSecond": 0.2262362944983819,
+   "cycles": 235
+  },
+  {
+   "run": 3,
+   "samples": 3709,
+   "usPerSample": 7.769064707468321,
+   "msPerSimSecond": 0.23313479773462784,
+   "cycles": 235
+  },
+  {
+   "run": 4,
+   "samples": 3709,
+   "usPerSample": 7.142206255055271,
+   "msPerSimSecond": 0.21432397249190938,
+   "cycles": 235
+  },
+  {
+   "run": 5,
+   "samples": 3709,
+   "usPerSample": 7.1276627123213805,
+   "msPerSimSecond": 0.21388754854368933,
+   "cycles": 235
+  },
+  {
+   "run": 6,
+   "samples": 3709,
+   "usPerSample": 7.568599622539769,
+   "msPerSimSecond": 0.2271192233009709,
+   "cycles": 235
+  },
+  {
+   "run": 7,
+   "samples": 3709,
+   "usPerSample": 7.92015368023726,
+   "msPerSimSecond": 0.23766868932038837,
+   "cycles": 235
+  },
+  {
+   "run": 8,
+   "samples": 3709,
+   "usPerSample": 7.031048260986789,
+   "msPerSimSecond": 0.21098833333333333,
+   "cycles": 235
+  },
+  {
+   "run": 9,
+   "samples": 3709,
+   "usPerSample": 7.695473442976543,
+   "msPerSimSecond": 0.23092646440129452,
+   "cycles": 235
+  },
+  {
+   "run": 10,
+   "samples": 3709,
+   "usPerSample": 7.208473442976543,
+   "msPerSimSecond": 0.21631252427184466,
+   "cycles": 235
+  },
+  {
+   "run": 11,
+   "samples": 3709,
+   "usPerSample": 5.592201941224049,
+   "msPerSimSecond": 0.16781130258899676,
+   "cycles": 236
+  },
+  {
+   "run": 12,
+   "samples": 3709,
+   "usPerSample": 5.8960390940954435,
+   "msPerSimSecond": 0.17692887540453076,
+   "cycles": 235
+  },
+  {
+   "run": 13,
+   "samples": 3709,
+   "usPerSample": 5.630539228902669,
+   "msPerSimSecond": 0.16896173139158577,
+   "cycles": 235
+  },
+  {
+   "run": 14,
+   "samples": 3709,
+   "usPerSample": 5.64598382313292,
+   "msPerSimSecond": 0.1694251941747573,
+   "cycles": 235
+  },
+  {
+   "run": 15,
+   "samples": 3709,
+   "usPerSample": 5.695531140469129,
+   "msPerSimSecond": 0.1709120145631068,
+   "cycles": 236
+  },
+  {
+   "run": 16,
+   "samples": 3709,
+   "usPerSample": 5.688406578592613,
+   "msPerSimSecond": 0.1706982200647249,
+   "cycles": 235
+  },
+  {
+   "run": 17,
+   "samples": 3709,
+   "usPerSample": 6.36146858991642,
+   "msPerSimSecond": 0.19089552588996764,
+   "cycles": 235
+  },
+  {
+   "run": 18,
+   "samples": 3709,
+   "usPerSample": 6.410569156106767,
+   "msPerSimSecond": 0.19236894012944983,
+   "cycles": 235
+  },
+  {
+   "run": 19,
+   "samples": 3709,
+   "usPerSample": 8.464444863844703,
+   "msPerSimSecond": 0.2540018284789644,
+   "cycles": 235
+  }
+ ],
+ "usPerSample": {
+  "median": 7.134934483688326,
+  "q25": 5.845912105688865,
+  "q75": 7.636415138851443,
+  "max": 8.854143704502562
+ },
+ "budgetUs": 33333.333333333336
+}

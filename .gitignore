@@ -1,0 +1,8 @@
+node_modules/
+docs/screenshots/demo-frames/
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+__pycache__/

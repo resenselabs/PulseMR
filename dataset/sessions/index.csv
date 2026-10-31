@@ -1,0 +1,11 @@
+scenario,name,tracking_condition,true_compressions,detected_compressions,true_pauses,detected_pauses,withheld_low_confidence,adaptive_cues,static_cues,session_gcs,depth_accuracy_pct,rate_accuracy_pct,hand_accuracy_pct,full_recoil_pct,interruption_fraction
+stable,Stable performance,lab,221,219,0,0,0,0,0,100.0,100.0,100.0,100.0,100.0,0.000
+shallow,Shallow compressions,lab,221,219,0,0,0,114,219,80.0,0.0,100.0,100.0,100.0,0.000
+deep,Excessive depth,lab,221,219,0,0,0,113,219,80.0,0.0,100.0,100.0,100.0,0.000
+fast,Fast compressions,lab,276,275,0,0,0,167,274,80.0,100.0,0.0,100.0,100.0,0.000
+slow,Slow compressions,lab,168,167,0,0,0,84,166,80.0,100.0,0.0,100.0,100.0,0.000
+drift,Hand-position drift,lab,221,219,0,0,0,101,201,81.6,100.0,100.0,8.2,100.0,0.000
+recoil,Incomplete recoil,lab,221,219,0,0,0,216,219,80.0,100.0,100.0,100.0,0.0,0.000
+pauses,Frequent interruptions,lab,198,197,4,4,0,5,5,97.9,99.5,100.0,100.0,100.0,0.102
+occlusion,Tracking occlusion,occl,220,203,0,0,45,27,27,96.6,99.4,88.0,100.0,95.6,0.000
+mixed,Mixed performance errors,lab,237,236,0,0,0,145,236,79.7,73.3,64.7,79.2,81.4,0.000
