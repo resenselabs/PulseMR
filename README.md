@@ -1,6 +1,10 @@
 <h1 align="center">PULSEMR</h1>
 
-<p align="center"><b>Adaptive mixed-reality CPR guidance: an interactive 3D research demonstration, with a ground-truth-labelled dataset</b></p>
+<p align="center">
+  <strong>Adaptive mixed-reality CPR guidance</strong>
+  <br>
+  An interactive 3D research demonstration with a ground-truth-labelled dataset
+</p>
 
 <p align="center">
   <img alt="Runs in the browser" src="https://img.shields.io/badge/runs%20in-the%20browser-2a78d6">
@@ -10,7 +14,9 @@
   <img alt="Not for clinical use" src="https://img.shields.io/badge/research%20demo-not%20for%20clinical%20use-eb6834">
 </p>
 
-<p align="center"><img src="docs/screenshots/demo.gif" alt="PULSEMR demo: a simulated rescuer gives shallow compressions and the adaptive controller responds" width="880"></p>
+<p align="center">
+  <img src="docs/screenshots/demo.gif" alt="PULSEMR demo: a simulated rescuer gives shallow compressions and the adaptive controller responds" width="100%">
+</p>
 
 PULSEMR simulates a CPR training session in a 3D lab, end to end. A synthetic rescuer gives chest compressions on a manikin. The app then runs the full chain:
 
@@ -29,11 +35,12 @@ The repository also contains **PULSEMR-SIM**, a dataset of about 9 MB:
 - the code that regenerates them bit for bit
 - a [data-descriptor paper](docs/paper/PULSEMR-SIM_dataset_paper.pdf)
 
+> [!IMPORTANT]
 > **Research demonstration, not for clinical use.** PULSEMR does not connect to a headset or a manikin and cannot measure a real person. It must not be used for clinical decisions or as CPR certification.
 
 ---
 
-## Contents
+## Table of contents
 
 - [Quick start](#quick-start)
 - [Tour of the app](#tour-of-the-app)
@@ -48,7 +55,7 @@ The repository also contains **PULSEMR-SIM**, a dataset of about 9 MB:
 
 ## Quick start
 
-**Option 1: run a local server (recommended)**
+### Option 1: Run a local server (recommended)
 
 ```bash
 git clone https://github.com/<your-username>/pulsemr.git
@@ -58,9 +65,12 @@ npm start            # zero-dependency server, nothing to install
 
 Open <http://localhost:8080>. Any static server works too, for example `python3 -m http.server 8080`.
 
-**Option 2: open the file.** Double-click `index.html`. The app also works from `file://`, because three.js is bundled in `vendor/`.
+### Option 2: Open the HTML file
 
-**Option 3: publish it on GitHub Pages.**
+Double-click `index.html`. The app also works from `file://`, because three.js is bundled in `vendor/`.
+
+### Option 3: Publish on GitHub Pages
+
 1. Push the repository to GitHub.
 2. Open **Settings → Pages**.
 3. Choose **Deploy from a branch**, branch `main`, folder `/ (root)`.
@@ -69,7 +79,7 @@ The live app appears at `https://<your-username>.github.io/pulsemr/`.
 
 On first load, the app shows a short demonstration: about 15 s of good compressions followed by a shallow phase, so you can watch the controller react. Touch any control to take over.
 
-Requirements: a browser with WebGL (any recent Chrome, Edge, Firefox or Safari). The fonts load from Google Fonts. Offline, the app falls back to system fonts.
+**Requirements:** a browser with WebGL (any recent Chrome, Edge, Firefox or Safari). The fonts load from Google Fonts. Offline, the app falls back to system fonts.
 
 ## Tour of the app
 
@@ -77,7 +87,9 @@ PULSEMR has five modes (keys **1** to **5**). Each one shows the same live sessi
 
 ### 1 · Train: the live session
 
-![Train mode](docs/screenshots/01-train.png)
+<p align="center">
+  <img src="docs/screenshots/01-train.png" alt="Train mode" width="100%">
+</p>
 
 The default view, shown here during the *Shallow compressions* scenario.
 
@@ -88,8 +100,8 @@ The default view, shown here during the *Shallow compressions* scenario.
 
 <table>
 <tr>
-<td width="50%"><img src="docs/screenshots/02-controller-details.png" alt="Object details: the adaptive controller"></td>
-<td width="50%"><img src="docs/screenshots/04-hand-closeup.png" alt="Hand close-up during hand drift"></td>
+<td width="50%"><img src="docs/screenshots/02-controller-details.png" alt="Object details: the adaptive controller" width="100%"></td>
+<td width="50%"><img src="docs/screenshots/04-hand-closeup.png" alt="Hand close-up during hand drift" width="100%"></td>
 </tr>
 <tr>
 <td><b>Click any object in the lab.</b> The feedback controller's panel shows its live state: primary deficit, deviation, modality, intensity, five-compression baseline, ten-compression history window and adaptation coefficient 0.3.</td>
@@ -99,7 +111,9 @@ The default view, shown here during the *Shallow compressions* scenario.
 
 ### 2 · MR view: what the trainee would see
 
-![Mixed-reality view](docs/screenshots/03-mr-view.png)
+<p align="center">
+  <img src="docs/screenshots/03-mr-view.png" alt="Mixed-reality view" width="100%">
+</p>
 
 This is a simulated headset view with overlays anchored to the manikin:
 
@@ -112,7 +126,9 @@ It is explicitly labelled as a simulation, not a HoloLens session.
 
 ### 3 · Assess: the session report
 
-![Assessment mode](docs/screenshots/05-assess.png)
+<p align="center">
+  <img src="docs/screenshots/05-assess.png" alt="Assessment mode" width="100%">
+</p>
 
 The report gives the session's guideline compliance score (GCS) and its components: depth, rate, hand position, full recoil and interruption fraction. Below them are the live depth waveform and per-compression charts for depth, rate, hand-position error and recoil residual. Switch between the whole session and the last 20 compressions. The session shown went through *Mixed errors* and then *Frequent interruptions*: the pause is visible in the waveform, and the hand error rises above the 20 mm threshold.
 
@@ -120,8 +136,8 @@ The report gives the session's guideline compliance score (GCS) and its componen
 
 <table>
 <tr>
-<td width="50%"><img src="docs/screenshots/06-compare.png" alt="Comparison mode"></td>
-<td width="50%"><img src="docs/screenshots/07-compare-ablation.png" alt="Ablation and system responsiveness"></td>
+<td width="50%"><img src="docs/screenshots/06-compare.png" alt="Comparison mode" width="100%"></td>
+<td width="50%"><img src="docs/screenshots/07-compare-ablation.png" alt="Ablation and system responsiveness" width="100%"></td>
 </tr>
 <tr>
 <td><b>Reported findings.</b> The manuscript's 24-participant results for adaptive MR guidance against each baseline (audio-visual, metronome-only, commercial device). They are fixed values, clearly labelled as reported, and never change with the simulation.</td>
@@ -131,7 +147,9 @@ The report gives the session's guideline compliance score (GCS) and its componen
 
 ### 5 · Replay: scrub through the session
 
-![Replay mode](docs/screenshots/08-replay.png)
+<p align="center">
+  <img src="docs/screenshots/08-replay.png" alt="Replay mode" width="100%">
+</p>
 
 The last 10 simulated minutes are kept in a ring buffer. Scrub the timeline, or press the arrow keys to step from one compression to the next, and the 3D scene, waveform and metrics follow. This screenshot is paused on a hand-position cue.
 
@@ -139,15 +157,15 @@ The last 10 simulated minutes are kept in a ring buffer. Scrub the timeline, or 
 
 <table>
 <tr>
-<td width="50%"><img src="docs/screenshots/09-scenario-lab.png" alt="Scenario lab"></td>
-<td width="50%"><img src="docs/screenshots/10-dark-dim.png" alt="Dark theme, dim lighting, fast compressions"></td>
+<td width="50%"><img src="docs/screenshots/09-scenario-lab.png" alt="Scenario lab" width="100%"></td>
+<td width="50%"><img src="docs/screenshots/10-dark-dim.png" alt="Dark theme, dim lighting, fast compressions" width="100%"></td>
 </tr>
 <tr>
 <td><b>Scenario lab (key S).</b> Ten scripted scenarios with start, pause, reset, replay and compare controls. <i>Tracking occlusion</i> is selected here: compressions measured mostly from occluded samples are withheld rather than scored. Tracking conditions (lab, low light, occlusion, motion jitter) are switched in the training-controls panel.</td>
 <td><b>Dark theme with dimmed lab lighting</b>, side view, <i>Fast compressions</i>. The adaptive-versus-static tab compares both controllers on the same compressions.</td>
 </tr>
 <tr>
-<td><img src="docs/screenshots/11-research-explorer.png" alt="Research explorer"></td>
+<td><img src="docs/screenshots/11-research-explorer.png" alt="Research explorer" width="100%"></td>
 <td>
 <img src="docs/screenshots/12-phone-guidance.png" alt="Phone layout, guidance sheet" width="48%">
 <img src="docs/screenshots/13-phone-data.png" alt="Phone layout, data sheet" width="48%">
@@ -161,12 +179,23 @@ The last 10 simulated minutes are kept in a ring buffer. Scrub the timeline, or 
 
 ## How it works
 
-```
- synthetic rescuer ──► tracking model ──► signal processing ──► assessment ──► feedback ──► 3D scene, MR overlay,
- (seeded segments)     30 Hz, noise,      Butterworth 5 Hz      peaks,         adaptive     audio, speech,
- ground truth          occlusion,         + 5-sample average    depth, rate,   + static     vibration
-                       confidence                               position,
-                                                                recoil, pauses
+```text
+Synthetic rescuer (seeded segments, ground truth)
+               |
+               v
+Tracking model (30 Hz, noise, occlusion, confidence)
+               |
+               v
+Signal processing (Butterworth 5 Hz + 5-sample average)
+               |
+               v
+Assessment (peaks, depth, rate, position, recoil, pauses)
+               |
+               v
+Feedback (adaptive and static controllers)
+               |
+               v
+3D scene + MR overlay + audio + speech + vibration
 ```
 
 | Stage | What it does | Where |
@@ -259,7 +288,7 @@ PULSEMR is small enough to read in an afternoon. The **[learning guide](docs/LEA
 
 ## Project structure
 
-```
+```text
 pulsemr/
 ├── index.html                 app shell (markup only)
 ├── css/styles.css             all styles, light and dark themes
@@ -321,5 +350,3 @@ If you use PULSEMR or PULSEMR-SIM, please cite it. GitHub's **Cite this reposito
 three.js is © three.js authors, used under the MIT licence (`vendor/three/LICENSE`). <!-- Add a LICENSE file for the PULSEMR code and dataset, e.g. MIT for code and CC BY 4.0 for data. -->
 
 **Disclaimer.** PULSEMR is a research and teaching demonstration. All motion and measurements are simulated. The study results shown in the interface are fixed values reported in the manuscript; the app does not reproduce that study. Nothing here is medical advice or a validated training device. Follow your local resuscitation council's guidelines and certified training.
-#   P u l s e M R  
- 
